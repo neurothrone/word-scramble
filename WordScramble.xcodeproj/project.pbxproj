@@ -11,6 +11,8 @@
 		2F065A3D28EAEBE20015A30E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F065A3C28EAEBE20015A30E /* ContentView.swift */; };
 		2F065A3F28EAEBE20015A30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A3E28EAEBE20015A30E /* Assets.xcassets */; };
 		2F065A4328EAEBE20015A30E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A4228EAEBE20015A30E /* Preview Assets.xcassets */; };
+		2F065A4B28EAEC3A0015A30E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A4928EAEC3A0015A30E /* README.md */; };
+		2F065A4C28EAEC3A0015A30E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A4A28EAEC3A0015A30E /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		2F065A3E28EAEBE20015A30E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F065A4028EAEBE20015A30E /* WordScramble.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordScramble.entitlements; sourceTree = "<group>"; };
 		2F065A4228EAEBE20015A30E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2F065A4928EAEC3A0015A30E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2F065A4A28EAEC3A0015A30E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,8 @@
 		2F065A2E28EAEBE20015A30E = {
 			isa = PBXGroup;
 			children = (
+				2F065A4A28EAEC3A0015A30E /* LICENSE */,
+				2F065A4928EAEC3A0015A30E /* README.md */,
 				2F065A3928EAEBE20015A30E /* WordScramble */,
 				2F065A3828EAEBE20015A30E /* Products */,
 			);
@@ -127,7 +133,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F065A4B28EAEC3A0015A30E /* README.md in Resources */,
 				2F065A4328EAEBE20015A30E /* Preview Assets.xcassets in Resources */,
+				2F065A4C28EAEC3A0015A30E /* LICENSE in Resources */,
 				2F065A3F28EAEBE20015A30E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
