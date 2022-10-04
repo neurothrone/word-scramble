@@ -7,23 +7,12 @@
 
 import SwiftUI
 
-struct WordScoring: Identifiable {
-  let id = UUID().uuidString
-  
-  let word: String
-  var score: Int
-  
-  mutating func increment() {
-    score += 1
-  }
-}
-
 struct ContentView: View {
   @FocusState private var isTextFieldFocused: Bool
   
   @State private var usedWords: [String] = []
   @State private var rootWord = ""
-  @State private var newWord = ""
+  @State private var userWord = ""
   
   @State private var errorTitle = ""
   @State private var errorMessage = ""
@@ -31,6 +20,8 @@ struct ContentView: View {
   
   @State private var wordScorings: [WordScoring] = []
   @State private var currentIndex: Int = .zero
+  
+  @State private var totalScore: Int = .zero
   
   private let words: [String]
   
@@ -52,6 +43,9 @@ struct ContentView: View {
         } message: {
           Text(errorMessage)
         }
+        .safeAreaInset(edge: .bottom) {
+          TotalScoreTextView(totalScore: totalScore)
+        }
         .toolbar {
           ToolbarItemGroup(placement: .keyboard) {
             Spacer()
@@ -67,6 +61,7 @@ struct ContentView: View {
                 .padding(.vertical, 10)
             }
             .buttonStyle(.borderedProminent)
+            .tint(.purple)
           }
         }
     }
@@ -75,7 +70,7 @@ struct ContentView: View {
   var content: some View {
     List {
       Section {
-        TextField("Enter your word", text: $newWord)
+        TextField("Enter your word", text: $userWord)
           .focused($isTextFieldFocused)
           .autocorrectionDisabled(true)
           .textInputAutocapitalization(.never)
@@ -103,43 +98,44 @@ extension ContentView {
   }
   
   private func addNewWord() {
-    let userWord = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-    guard userWord.count > 0 else { return }
+    let word = userWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
     
-    guard isOriginal(word: userWord) else {
-      wordError(title: "Word used already", message: "Be more original")
+    guard isNotTooShort(word: word) else {
+      wordError(title: "Word too short", message: "Words shorter than three letters are not allowed.")
       return
     }
     
-    guard isPossible(word: userWord) else {
-      wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
-      return
-    }
-    
-    guard isReal(word: userWord) else {
-      wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
-      return
-    }
-    
-    guard isNotRootWord(word: userWord) else {
+    guard isNotRootWord(word: word) else {
       wordError(title: "Root word detected", message: "You can't use the root word.")
       return
     }
     
-    guard isNotTooShort(word: userWord) else {
-      wordError(title: "Too short", message: "Words shorter than three letters are not allowed.")
+    guard isOriginal(word: word) else {
+      wordError(title: "Word used already", message: "Be more original")
+      return
+    }
+    
+    guard isPossible(word: word) else {
+      wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+      return
+    }
+    
+    guard isReal(word: word) else {
+      wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
       return
     }
     
     withAnimation(.easeInOut) {
-      usedWords.insert(userWord, at: .zero)
+      usedWords.insert(word, at: .zero)
     }
     
     let scoreMultiplier = usedWords.count
-    let pointsPerLetter = newWord.count
-    wordScorings[currentIndex].score += (scoreMultiplier * pointsPerLetter)
+    let pointsPerLetter = userWord.count
+    let score = scoreMultiplier * pointsPerLetter
+    wordScorings[currentIndex].score += score
+    totalScore += score
     
-    newWord = ""
+    userWord = ""
     isTextFieldFocused = true
   }
   
@@ -185,10 +181,12 @@ extension ContentView {
   }
   
   private func restart() {
-    usedWords = []
+    usedWords.removeAll()
     rootWord = getRandomWord()
+    
     addWordScore()
-    newWord = ""
+    
+    userWord = ""
     isTextFieldFocused = true
   }
   
