@@ -13,6 +13,8 @@
 		2F065A4328EAEBE20015A30E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A4228EAEBE20015A30E /* Preview Assets.xcassets */; };
 		2F065A4B28EAEC3A0015A30E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A4928EAEC3A0015A30E /* README.md */; };
 		2F065A4C28EAEC3A0015A30E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A4A28EAEC3A0015A30E /* LICENSE */; };
+		2F065A5428EC441C0015A30E /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2F065A5328EC441C0015A30E /* words.txt */; };
+		2F065A5928EC6DDF0015A30E /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F065A5828EC6DDF0015A30E /* ScoreBoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2F065A4228EAEBE20015A30E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F065A4928EAEC3A0015A30E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2F065A4A28EAEC3A0015A30E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2F065A5328EC441C0015A30E /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		2F065A5828EC6DDF0015A30E /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 				2F065A3A28EAEBE20015A30E /* WordScrambleApp.swift */,
 				2F065A3E28EAEBE20015A30E /* Assets.xcassets */,
 				2F065A4028EAEBE20015A30E /* WordScramble.entitlements */,
+				2F065A5328EC441C0015A30E /* words.txt */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				2F065A3C28EAEBE20015A30E /* ContentView.swift */,
+				2F065A5828EC6DDF0015A30E /* ScoreBoardView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -152,6 +158,7 @@
 				2F065A4B28EAEC3A0015A30E /* README.md in Resources */,
 				2F065A4328EAEBE20015A30E /* Preview Assets.xcassets in Resources */,
 				2F065A4C28EAEC3A0015A30E /* LICENSE in Resources */,
+				2F065A5428EC441C0015A30E /* words.txt in Resources */,
 				2F065A3F28EAEBE20015A30E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +172,7 @@
 			files = (
 				2F065A3D28EAEBE20015A30E /* ContentView.swift in Sources */,
 				2F065A3B28EAEBE20015A30E /* WordScrambleApp.swift in Sources */,
+				2F065A5928EC6DDF0015A30E /* ScoreBoardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
